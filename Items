@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Spillet
+{
+    
+        public class Item
+        {
+
+            public string ItemName { get; set; }
+            public string ItemDescription { get; set; }
+            public int UsesLeft { get; set; }
+
+            public Item(string itemName, string itemDescription, int usesLeft)
+            {
+                ItemName = itemName;
+                ItemDescription = itemDescription;
+                UsesLeft = usesLeft;
+
+            }
+
+            public void UseHints(int usesLeft)
+            {
+                UsesLeft -= usesLeft;
+                Console.WriteLine("Du har i alt: " + UsesLeft + " Hints");
+
+            }
+            public void FindHints(int usesLeft)
+            {
+                UsesLeft += usesLeft;
+                Console.WriteLine("Du har i alt: " + UsesLeft + " Hints");
+            }
+
+
+        }
+
+        class Weapon : Item
+        {
+
+            public string WeaponName { get; set; }
+            public string WeaponDescription { get; set; }
+
+            public Weapon(string weaponName, string weaponDescription, int usesLeft) : base(weaponName, weaponDescription, usesLeft)
+            {
+
+            }
+
+        }
+    }
+
