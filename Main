@@ -1,195 +1,285 @@
-
-string room1Switch;
-
-
-bool room1Loop = true;
+        using Spillet;
 
 
 
-//alle Objekter der skal laves til at starte med
+        string roomSwitch;
 
-//Rooms
-Room Room1 = new Room("1","Room1", "Velkommen til det første rum. Dette rum repræsentere sæson 1. Du er på et fly. Det ret stort. Du kigger rundt og får øje på nogle forskellige ting. " +    
-    "\nEn kjole med mange blomster på, En rød bil, en lille metal ting og døren videre til næste rum.  Hvad ville du undersøge først?");
 
-Room Room2 = new Room("2", "Room2", "Velkommen til det andet rum. Dette rum repræsentere sæson 2.");
-
-Room Room3 = new Room("3", "Room3", "Velkommen til det tredje rum. Dette rum repræsentere sæson 3.");
-
-Room Room4 = new Room("4", "Room4", "Velkommen til det fjerde rum. Dette rum repræsentere sæson 4.");
-
-Room Room5 = new Room("5", "Room5", "Velkommen til det femte rum. Dette rum repræsentere sæson 5.");
-
-Room Room6 = new Room("6", "Room6", "Velkommen til det sjette rum. Dette rum repræsentere sæson 6.");
-
-Room Room7 = new Room("7", "Room7", "Velkommen til det syvende rum. Dette rum repræsentere sæson 7.");
+        bool roomLoop = true;
 
 
 
+        //alle Objekter der skal laves til at starte med
 
-//Items Hints
-Item Hints = new Item("Hints", "Hints kan du bruge i quizen.", 2);
+        //Rooms
+        
 
-Item SkyeChip = new Item("SkyeHint", "Efter næmmere kig kan du se at det er skyes chip med hendes liv på. Den skænker dig et hint." +
-    "\n" + Hints.ItemDescription, 1);
+        Room Room1 = new Room("1",  "Velkommen til det første rum. Dette rum repræsentere sæson 1. Du er på et fly. Det ret stort. Du kigger rundt og får øje på nogle forskellige ting. " +
+            "\nEn kjole med mange blomster på, En rød bil, en lille metal ting og døren videre til næste rum.  Hvad ville du undersøge først?");
+
+        Room Room2 = new Room("2",  "Velkommen til det andet rum. Dette rum repræsentere sæson 2. Du er et eller andte mærkeligt sted i bjern." +
+            "Efter du har gået rundt lidt finder du ud af der er helt forladt bortset fra noget skrald som en fast Food rapper, Et eller andet armbånd hvor der står 00 på, en blå krystal ting og en sølv boks. ");
+
+        Room Room3 = new Room("3",  "Velkommen til det tredje rum. Dette rum repræsentere sæson 3.");
+
+        Room Room4 = new Room("4",  "Velkommen til det fjerde rum. Dette rum repræsentere sæson 4.");
+
+        Room Room5 = new Room("5",  "Velkommen til det femte rum. Dette rum repræsentere sæson 5.");
+
+        Room Room6 = new Room("6",  "Velkommen til det sjette rum. Dette rum repræsentere sæson 6.");
+
+        Room Room7 = new Room("7",  "Velkommen til det syvende rum. Dette rum repræsentere sæson 7.");
 
 
-//Item Quiz
-Item Obelisk = new Item("Obelisk", "", 0);
 
-Item Kjole = new Item("RainaKjole", "When did we first meet her?What was she called?", 0);
-Room QuizRoom = new Room("Quiz", "QuizRoom", "Du tager nogle skidt hen mod kjolen. Hvor du opdager at det Rainas kjole. Problemmet er at ud af kjolen kommer et monster med spørgsmål.");
+
+        //Items Hints
+        Item Hints = new Item("Hints", "Hints kan du bruge i quizen.", 2);
+
+        Item SkyeChip = new Item("SkyeHint", "Efter næmmere kig kan du se at det er skyes chip med hendes liv på. Den skænker dig et hint." +
+            "\n" + Hints.ItemDescription, 1);
+
+
+        //Item Quiz
+        
+
+        Item Kjole = new Item("RainaKjole", "Hvornår møøte vi hende først?Hvad kaldte vi hende?", 0);
+        Room QuizRoom = new Room("Quiz", "Du tager nogle skidt hen mod kjolen. Hvor du opdager at det Rainas kjole. Problemmet er at ud af kjolen kommer et monster med spørgsmål.");
+
+        Item Obelisk = new Item("Obelisk", "", 0);
+
+
+     
+
+        //Arrays
+        string[] CurrentDescription = {Room1.RoomDescription, Room2.RoomDescription, Room3.RoomDescription, Room4.RoomDescription, 
+                                       Room5.RoomDescription, Room6.RoomDescription, Room7.RoomDescription};
+        string[,] CurrentQuiz = { 
+        //Sæson 1 Quiz
+        {"2","Hvor kommer navnet \"The Cavalry\"","Hvad skete der i Bahrain?",
+            "\n1. Det ved vi ikke " +
+            "\n2. Hun dræbte et barn " +
+            "\n3. Hun mødte Coulson for første gang. " +
+            "\n4. Bobbi og Lance blev gift der",
+        "1","Ignore de ikke altid loven?","Hvad står S.H.I.E.L.D. Hvad står det for?",
+            "\n1. Strategic, Homeland, Intervention, Enforcement and Logistics   Division " +
+            "\n2. Science,   Humanity, Intelligence, Earth       and Law         Division " +
+            "\n3. Solving,   History,  Identifying,  Evidence    and Learners    Division" +
+            "\n4. Sixteen,   Horny,    International Eggplants   and Livestreams Division",
+        "1","Son and father","\"What are we?\"",
+            "\n1. A team" +
+            "\n2. Weirdos" +
+            "\n3. Friends" +
+            "\n4. A Family",
+        "3","Rising Tide","Hvad lavede Skye før hun var shield agent?",
+            "\n1. Arbejdede for Centipied" +
+            "\n2. En del af en teorist gruppe" +
+            "\n3. En del af en hacker gruppe" +
+            "\n4. En normal person"},
+
+        //Sæson 2 Quiz
+        {"1","Boobi er hendes kælenavn, det deler ingen vokaler med hendes rigtige navn","Hvad er navnet på eks-konen?",
+            "\n1. Barbara" +
+            "\n2. Brooke" +
+            "\n3. Bea" +
+            "\n4. Beatrice",
+        "3","De refferede til hende som Hartley begge hendes navne deler 2 vokaler. ","Hvem var dum nok til at rører the diviner?",
+            "\n1. Agent 33" +
+            "\n2. Anne" +
+            "\n3. Isabelle" +
+            "\n4. Raina",
+        "1","Hvem har et navn hvor der ville stå Reinhart til sidst","Dr. Whitehall's andte navn?",
+            "\n1. Werner" +
+            "\n2. Daniel" +
+            "\n3. Calvin" +
+            "\n4. Robert",
+        "4","Tag jer sammen","Hvor bor de fleste inhumans",
+            "\n1. Afterdeath" +
+            "\n2. NewLife" +
+            "\n3. Newdeath" +
+            "\n4. Afterlife",},
+
+        //Sæson 3 Quiz
+        {"4","Mays eks mand","Hvem er sendt til at dræbe/lavet Inhumans?",
+            "\n1. Jiaying" +
+            "\n2. Lincoln" +
+            "\n3. Kree" +
+            "\n4. Lash",
+        "1","Der er kun en mulighed. en af navne er et kælenavn, det 2 hendes bio navn","Hvad er skyes superhelte navn?",
+            "\n1. Quake" +
+            "\n2. Tremors" +
+            "\n3. Hun har ikke et" +
+            "\n4. Daisy",
+        "","HHHIIINNNTTT","Hvad er nasa agents navn?",
+            "\n1." +
+            "\n2." +
+            "\n3." +
+            "\n4.",
+        "","HHHIIINNNTTT","Hvilke inhuman kræfter har vi set?",
+            "\n1." +
+            "\n2." +
+            "\n3." +
+            "\n4.",},
+
+        //Sæson 4 Quiz
+        {"","HHHIIINNNTTT","Hvad er Ghost Rideres alias?",
+            "\n1. " +
+            "\n2. " +
+            "\n3. " +
+            "\n4. ",
+        "","HHHIIINNNTTT","Hvad er The Patriots alias?",
+            "\n1. " +
+            "\n2. " +
+            "\n3. " +
+            "\n4. ",
+        "","HHHIIINNNTTT","Hvad står AIDA for?",
+            "\n1. " +
+            "\n2. " +
+            "\n3. " +
+            "\n4. ",
+        "","HHHIIINNNTTT","Hvad hedder ejeren af træ fuglen",
+            "\n1. " +
+            "\n2. " +
+            "\n3. " +
+            "\n4. ",},
+    
+        //Sæson 5 Quiz
+        {"","HHHIIINNNTTT","Hvor er vi?",
+            "\n1. " +
+            "\n2. " +
+            "\n3. " +
+            "\n4. ",
+        "","HHHIIINNNTTT","Hvad er Skyes superskurk navn?",
+            "\n1. " +
+            "\n2. " +
+            "\n3. " +
+            "\n4. ",
+        "","HHHIIINNNTTT","Simmons og Fitz barnebarn hedder?",
+            "\n1. " +
+            "\n2. " +
+            "\n3. " +
+            "\n4. ",
+        "","HHHIIINNNTTT","Hvordan kom vi her",
+            "\n1. " +
+            "\n2. " +
+            "\n3. " +
+            "\n4. ",},
+
+        //Sæson 6 Quiz
+        {"","HHHIIINNNTTT","Ikke Coulson, men ser ud og taler som om?",
+            "\n1. " +
+            "\n2. " +
+            "\n3. " +
+            "\n4. ",
+        "","HHHIIINNNTTT","Hvem ville \"spise\" Jorden",
+            "\n1. " +
+            "\n2. " +
+            "\n3. " +
+            "\n4. ",
+        "","HHHIIINNNTTT","Hvem er vores bedste ven",
+            "\n1. " +
+            "\n2. " +
+            "\n3. " +
+            "\n4. ",
+        "","HHHIIINNNTTT","Hvem er directøren af shield",
+            "\n1. " +
+            "\n2. " +
+            "\n3. " +
+            "\n4. ",},
+
+        //Sæson 7 Quiz
+        {"","HHHIIINNNTTT","Hvem er Daisy's kæreste og hvem er hendes søster?",
+            "\n1. " +
+            "\n2. " +
+            "\n3. " +
+            "\n4. ",
+        "","HHHIIINNNTTT","Hvor er fitz?",
+            "\n1. " +
+            "\n2. " +
+            "\n3. " +
+            "\n4. ",
+        "","HHHIIINNNTTT","Hvorfor gjorde de det på den her måde?",
+            "\n1. " +
+            "\n2. " +
+            "\n3. " +
+            "\n4. ",
+        "","HHHIIINNNTTT","Hvad kæmper vi for?",
+            "\n1. " +
+            "\n2. " +
+            "\n3. " +
+            "\n4. ",}
+        };
+
+
+
+
+
+
+        
+
+        
+
 
 Console.Clear();
-Console.WriteLine("Velkommen til mit spil. Håber du har styr på S.H.I.E.L.D. ellers bliver det måske ikke så sjovt");
+        Console.WriteLine("Velkommen til mit spil. Håber du har styr på S.H.I.E.L.D. ellers bliver det måske ikke så sjovt");
 
-do
-{
-    
-    Console.WriteLine(Room1.RoomDescription);
-    room1Switch = Console.ReadLine();
-
-    Console.Clear();
-
-    switch (room1Switch)
-    {
-        
-        case "1":
-            {
-                Console.WriteLine(QuizRoom.RoomDescription);
-                QuizRoom.MiniQuiz("",Kjole.ItemDescription);
-                Console.ReadKey();
-                break;
-            }
-            
-        case "2":
-            {
-                Console.WriteLine(SkyeChip.ItemDescription);
-                Hints.FindHints(SkyeChip.UsesLeft);
-                Console.ReadKey();
-                break;
-            }
-            //Lola
-        case "3":
-            {
-
-                Console.ReadKey();
-                break;
-            }
-        default:
-            {
-                Console.WriteLine("Der sket en fejl. Tryk enter og prøv venligst igen");
-                Console.ReadKey();
-                Console.Clear();
-                break;
-            }
-    }
-}
-while (room1Loop);
-
-
-
-
-Console.ReadKey();
-
-public class Room
-{
-    public string RoomId { get; set; }
-    public string RoomName { get; set; }
-    public string RoomDescription { get; set; }
-
-
-    public Room(string roomId, string roomName, string roomDescription)
-    {
-        RoomId = roomId;
-        RoomName = roomName;
-        RoomDescription = roomDescription;
-    }
-
-
-
-
-    public void MiniQuiz( string Svar, string quizSpørgsmål)
-    {
-        bool QuizLoop = true;
         do
         {
 
-            Console.WriteLine(quizSpørgsmål.Substring(0, quizSpørgsmål.IndexOf("?")));
-            string svar = Console.ReadLine();
-            if (svar == Svar)
+            Console.WriteLine(Room1.RoomDescription);
+            roomSwitch = Console.ReadLine();
+
+            Console.Clear();
+
+            switch (roomSwitch)
             {
-                Console.WriteLine("Det var rigtigt");
-                quizSpørgsmål = quizSpørgsmål.Remove(0, (quizSpørgsmål.IndexOf("?")+1));
-                if (quizSpørgsmål.Length == 0)
-                {
-                    QuizLoop = false;
-                }
+
+                case "1":
+                    {
+                        Console.WriteLine(QuizRoom.RoomDescription);
+                        QuizRoom.MiniQuiz("", Kjole.ItemDescription);
+                        Console.ReadKey();
+                        break;
+                    }
+
+                case "2":
+                    {
+                        Console.WriteLine(SkyeChip.ItemDescription);
+                        Hints.FindHints(SkyeChip.UsesLeft);
+                        Console.ReadKey();
+                        break;
+                    }
+                //Lola
+                case "3":
+                    {
+
+                        Console.ReadKey();
+                        break;
+                    }
+                //Dør
+                case "4":
+                    {
+                        QuizRoom.Quiz(CurrentQuiz, 0, Hints.UsesLeft);
+                        Console.ReadKey();
+                        break;
+                    }
+                default:
+                    {
+                        Console.WriteLine("Der sket en fejl. Tryk enter og prøv venligst igen");
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+                    }
             }
-            else
-            {
-                Console.WriteLine("Det er forkert");
-            }
+
+        
 
 
-        }
-        while (QuizLoop);
-    }
-
+        Room RoomCurrent = new Room("", "");
 }
-
-public static class Players
-{
-    public static double Lives {  get; set; }
-
-    static Players()
-    {
-        Lives = 100;
-
-    }
-
-}
-
-public class Item
-{
-
-    public string ItemName { get; set; }
-    public string ItemDescription { get; set; }
-    public int UsesLeft { get; set; }
-
-    public Item(string itemName, string itemDescription, int usesLeft) 
-    { 
-        ItemName = itemName;
-        ItemDescription = itemDescription;
-        UsesLeft = usesLeft;
-
-    }
-
-    public void UseHints(int usesLeft)
-    {
-        UsesLeft -= usesLeft;
-        Console.WriteLine("Du har i alt: " + UsesLeft + " Hints");
-
-    }
-    public void FindHints(int usesLeft)
-    {
-        UsesLeft += usesLeft;
-        Console.WriteLine("Du har i alt: " + UsesLeft + " Hints");
-    }
+        while (roomLoop);
 
 
-}
 
- class Weapon : Item
-{
 
-    public string WeaponName { get; set; }
-    public string WeaponDescription { get; set; }
-
-    public Weapon(string weaponName, string weaponDescription, int usesLeft) : base(weaponName, weaponDescription, usesLeft) 
-    {
-
-    }
-
-}
-
+        Console.ReadKey();
