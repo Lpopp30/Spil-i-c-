@@ -1,0 +1,112 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Spillet
+{
+    
+        public class Room
+        {
+            public string RoomId { get; set; }
+            
+            public string RoomDescription { get; set; }
+
+
+            public Room(string roomId,  string roomDescription)
+            {
+                RoomId = roomId;
+                RoomDescription = roomDescription;
+            }
+
+
+            public void Quiz (string[,] svarMuligheder, int nummer, int Hints)
+            {
+            for (int i = 0; i < svarMuligheder.GetLength(1); i =+ 4)
+            {
+
+                bool QuizLoop = true;
+                do
+                {
+                    Console.WriteLine("Her er dine spørgsmål for at komme ud af rummet. For at bruge et hint. skriv \"hint\"");
+                    Console.WriteLine(svarMuligheder[nummer, i + 2] + svarMuligheder[nummer, i + 3]);
+                    string BrugerSvar = Console.ReadLine().ToLower();
+
+                    if (svarMuligheder[nummer, i] == BrugerSvar)
+                    {
+                        Console.WriteLine("Det var rigtigt");
+                        QuizLoop = false;
+                    }
+                    else if (BrugerSvar == "hint")
+                    {
+                        if (Hints > 0)
+                        {
+                            Console.Clear();
+                            Console.WriteLine(svarMuligheder[nummer, i + 1]);
+                            Hints -= 1;
+                            Console.WriteLine("Du har i alt: " + Hints + " Hints");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Du har devsærre ikke nok hints. Goodluck");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Det er forkert");
+                    }
+
+                    
+                    Console.ReadKey();
+                }
+                while (QuizLoop);
+                Console.Clear();
+            }
+
+
+        }
+
+            public void MiniQuiz(string Svar, string quizSpørgsmål)
+            {
+                bool QuizLoop = true;
+                do
+                {
+
+                    Console.WriteLine(quizSpørgsmål.Substring(0, quizSpørgsmål.IndexOf("?")));
+                    string svar = Console.ReadLine();
+                    if (svar == Svar)
+                    {
+                        Console.WriteLine("Det var rigtigt");
+                        quizSpørgsmål = quizSpørgsmål.Remove(0, (quizSpørgsmål.IndexOf("?") + 1));
+                        if (quizSpørgsmål.Length == 0)
+                        {
+                            QuizLoop = false;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Det er forkert");
+                    }
+
+                }
+                while (QuizLoop);
+            }
+
+            public void RoomChoose(int RoomId, string[] room)
+            {
+            
+                Console.WriteLine($"{room[RoomId]}");
+
+
+            }
+
+        }
+
+
+
+
+
+    }
+
