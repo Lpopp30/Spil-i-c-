@@ -1,0 +1,20 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Spillet
+{
+    public static class Players
+    {
+        public static double Lives { get; set; }
+
+        static Players()
+        {
+            Lives = 100;
+
+        }
+
+    }
+}
