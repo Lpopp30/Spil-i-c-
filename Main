@@ -1,6 +1,6 @@
         using Spillet;
 
-
+        int currentRoomNumber = 0;
 
         string roomSwitch;
 
@@ -8,27 +8,28 @@
         bool roomLoop = true;
 
 
+//ArraysItems
+List<string[]> currentMiniQuiz = new List<string[]>();
+currentMiniQuiz.Add(new string[] 
+{"","HHHIIINNNTTT","Hvor mødte vi hende først",
+            "\n1. " +
+            "\n2. " +
+            "\n3. " +
+            "\n4. ",
+"","HHHIIINNNTTT","Hvad kaldte vi hende?",
+            "\n1. " +
+            "\n2. " +
+            "\n3. " +
+            "\n4. " });
 
-        //alle Objekter der skal laves til at starte med
 
-        //Rooms
-        
 
-        Room Room1 = new Room("1",  "Velkommen til det første rum. Dette rum repræsentere sæson 1. Du er på et fly. Det ret stort. Du kigger rundt og får øje på nogle forskellige ting. " +
-            "\nEn kjole med mange blomster på, En rød bil, en lille metal ting og døren videre til næste rum.  Hvad ville du undersøge først?");
 
-        Room Room2 = new Room("2",  "Velkommen til det andet rum. Dette rum repræsentere sæson 2. Du er et eller andte mærkeligt sted i bjern." +
-            "Efter du har gået rundt lidt finder du ud af der er helt forladt bortset fra noget skrald som en fast Food rapper, Et eller andet armbånd hvor der står 00 på, en blå krystal ting og en sølv boks. ");
 
-        Room Room3 = new Room("3",  "Velkommen til det tredje rum. Dette rum repræsentere sæson 3.");
 
-        Room Room4 = new Room("4",  "Velkommen til det fjerde rum. Dette rum repræsentere sæson 4.");
+//alle Objekter der skal laves til at starte med
 
-        Room Room5 = new Room("5",  "Velkommen til det femte rum. Dette rum repræsentere sæson 5.");
 
-        Room Room6 = new Room("6",  "Velkommen til det sjette rum. Dette rum repræsentere sæson 6.");
-
-        Room Room7 = new Room("7",  "Velkommen til det syvende rum. Dette rum repræsentere sæson 7.");
 
 
 
@@ -43,17 +44,41 @@
         //Item Quiz
         
 
-        Item Kjole = new Item("RainaKjole", "Hvornår møøte vi hende først?Hvad kaldte vi hende?", 0);
+        Item Kjole = new Item("RainaKjole", "", 0);
         Room QuizRoom = new Room("Quiz", "Du tager nogle skidt hen mod kjolen. Hvor du opdager at det Rainas kjole. Problemmet er at ud af kjolen kommer et monster med spørgsmål.");
 
         Item Obelisk = new Item("Obelisk", "", 0);
 
+//List over Items
+List<Item> currentItem = new List<Item>();
+currentItem.Add(Hints);
+currentItem.Add(SkyeChip);
+currentItem.Add(Kjole);
+currentItem.Add(Obelisk);
 
-     
 
-        //Arrays
-        string[] CurrentDescription = {Room1.RoomDescription, Room2.RoomDescription, Room3.RoomDescription, Room4.RoomDescription, 
-                                       Room5.RoomDescription, Room6.RoomDescription, Room7.RoomDescription};
+//Rooms
+Room Room0 = new Room("1", "Velkommen til det første rum. Dette rum repræsentere sæson 1. Du er på et fly. Det ret stort. Du kigger rundt og får øje på nogle forskellige ting. " +
+            "\nEn kjole med mange blomster på, En rød bil, en lille metal ting og døren videre til næste rum.  Hvad ville du undersøge først?"
+             );
+
+Room Room1 = new Room("2", "Velkommen til det andet rum. Dette rum repræsentere sæson 2. Du er et eller andte mærkeligt sted i bjern." +
+    "Efter du har gået rundt lidt finder du ud af der er helt forladt bortset fra noget skrald som en fast Food rapper, Et eller andet armbånd hvor der står 00 på, en blå krystal ting og en sølv boks. ");
+
+Room Room2 = new Room("3", "Velkommen til det tredje rum. Dette rum repræsentere sæson 3.");
+
+Room Room3 = new Room("4", "Velkommen til det fjerde rum. Dette rum repræsentere sæson 4.");
+
+Room Room4 = new Room("5", "Velkommen til det femte rum. Dette rum repræsentere sæson 5.");
+
+Room Room5 = new Room("6", "Velkommen til det sjette rum. Dette rum repræsentere sæson 6.");
+
+Room Room6 = new Room("7", "Velkommen til det syvende rum. Dette rum repræsentere sæson 7.");
+
+
+//Arrays Rooms
+Room[] CurrentRoom = {Room0 ,Room1, Room2, Room3, Room4, 
+                                       Room5, Room6 };
         string[,] CurrentQuiz = { 
         //Sæson 1 Quiz
         {"2","Hvor kommer navnet \"The Cavalry\"","Hvad skete der i Bahrain?",
@@ -110,38 +135,38 @@
             "\n2. Tremors" +
             "\n3. Hun har ikke et" +
             "\n4. Daisy",
-        "","HHHIIINNNTTT","Hvad er nasa agents navn?",
-            "\n1." +
-            "\n2." +
-            "\n3." +
-            "\n4.",
-        "","HHHIIINNNTTT","Hvilke inhuman kræfter har vi set?",
-            "\n1." +
-            "\n2." +
-            "\n3." +
-            "\n4.",},
+        "3","HHHIIINNNTTT","Hvad er nasa agents navn?",
+            "\n1. Bob" +
+            "\n2. Steve" +
+            "\n3. Will" +
+            "\n4. Matt",
+        "4","HHHIIINNNTTT","Hvilken inhuman kræft har vi ikke set indtil videre?",
+            "\n1. Chronic Vision" +
+            "\n2. Sense Manipulation" +
+            "\n3. Medusa" +
+            "\n4. Density manipulation",},
 
         //Sæson 4 Quiz
-        {"","HHHIIINNNTTT","Hvad er Ghost Rideres alias?",
+        {"3","HHHIIINNNTTT","Hvad er Ghost Rideres alias?",
             "\n1. " +
             "\n2. " +
+            "\n3. Robbie" +
+            "\n4. ",
+        "2","HHHIIINNNTTT","Hvad er The Patriots alias?",
+            "\n1. " +
+            "\n2. Jeffrey" +
             "\n3. " +
             "\n4. ",
-        "","HHHIIINNNTTT","Hvad er The Patriots alias?",
-            "\n1. " +
-            "\n2. " +
-            "\n3. " +
-            "\n4. ",
-        "","HHHIIINNNTTT","Hvad står AIDA for?",
-            "\n1. " +
-            "\n2. " +
-            "\n3. " +
-            "\n4. ",
-        "","HHHIIINNNTTT","Hvad hedder ejeren af træ fuglen",
-            "\n1. " +
-            "\n2. " +
-            "\n3. " +
-            "\n4. ",},
+        "4","HHHIIINNNTTT","Hvad står AIDA for?",
+            "\n1. Attention Interest Desire Action" +
+            "\n2. Ingen ting" +
+            "\n3. Adaptable Inorganic Denderite Atom" +
+            "\n4. Artificial Intelligent Digital Assistant",
+        "2","HHHIIINNNTTT","Hvad hedder ejeren af træ fuglen",
+            "\n1. Charles" +
+            "\n2. Robin" +
+            "\n3. May" +
+            "\n4. Polly",},
     
         //Sæson 5 Quiz
         {"","HHHIIINNNTTT","Hvor er vi?",
@@ -215,9 +240,8 @@
 
 
 
-        
 
-        
+
 
 
 Console.Clear();
@@ -225,8 +249,8 @@ Console.Clear();
 
         do
         {
-
-            Console.WriteLine(Room1.RoomDescription);
+            
+            Console.WriteLine(CurrentRoom[currentRoomNumber].RoomDescription);
             roomSwitch = Console.ReadLine();
 
             Console.Clear();
@@ -236,8 +260,7 @@ Console.Clear();
 
                 case "1":
                     {
-                        Console.WriteLine(QuizRoom.RoomDescription);
-                        QuizRoom.MiniQuiz("", Kjole.ItemDescription);
+                        QuizRoom.MiniQuiz(currentMiniQuiz[Kjole.UsesLeft], Hints.UsesLeft);
                         Console.ReadKey();
                         break;
                     }
@@ -259,13 +282,13 @@ Console.Clear();
                 //Dør
                 case "4":
                     {
-                        QuizRoom.Quiz(CurrentQuiz, 0, Hints.UsesLeft);
+                        QuizRoom.Quiz(CurrentQuiz, ref currentRoomNumber, Hints.UsesLeft);
                         Console.ReadKey();
                         break;
                     }
                 default:
                     {
-                        Console.WriteLine("Der sket en fejl. Tryk enter og prøv venligst igen");
+                        Console.WriteLine("Der er sket en fejl. Tryk enter og prøv venligst igen");
                         Console.ReadKey();
                         Console.Clear();
                         break;
@@ -274,8 +297,8 @@ Console.Clear();
 
         
 
-
-        Room RoomCurrent = new Room("", "");
+        
+        
 }
         while (roomLoop);
 
