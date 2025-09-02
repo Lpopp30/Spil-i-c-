@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Spillet
+{
+
+    class Navigation : Action
+    {
+        public Navigation(int id, string description) : base(id, description)
+        {
+            Console.WriteLine(description);
+            NavigateToRoom(id);
+        }
+        /*
+        public override void Execute()
+        {
+            void RoomSwitch(ref int id)
+            {
+                Id = id;
+
+                if (Id <= 4 || Id == 7)
+                {
+                    Id = 0;
+                    Id += 3;
+                }
+                else if (Id == 5)
+                {
+                    Id = 0;
+                    Id += 1;
+                }
+                else if (Id == 6)
+                {
+                    Id = 0;
+                    Id += 2;
+                }
+
+            }
+        }
+        */
+
+    }
+}
