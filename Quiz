@@ -1,0 +1,72 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Spillet
+{
+    public class Quiz : Action
+    {
+        public string[] SvarMuligheder { get; set; }
+
+        public int Hints { get; set; }
+
+        public Quiz(int id, string description, string[] svarMuligheder, int hints) : base(id, description)
+        {
+            SvarMuligheder = svarMuligheder;
+            Hints = hints;
+        }
+       
+
+            void BigQuiz(Quiz RoomQuiz)
+            {
+                for (int i = 0; i < RoomQuiz.SvarMuligheder.Length; i += 4)
+                {
+
+                    bool QuizLoop = true;
+                    do
+                    {
+                        Console.WriteLine("Her er dine spørgsmål for at komme ud af rummet. For at bruge et hint. skriv \"hint\"");
+                        Console.WriteLine(RoomQuiz.SvarMuligheder[i + 2] + RoomQuiz.SvarMuligheder[i + 3]);
+                        string BrugerSvar = Console.ReadLine().ToLower();
+
+                        if (RoomQuiz.SvarMuligheder[i] == BrugerSvar)
+                        {
+                            Console.WriteLine("Det var rigtigt");
+                            QuizLoop = false;
+                        }
+                        else if (BrugerSvar == "hint")
+                        {
+                            if (RoomQuiz.Hints > 0)
+                            {
+                                Console.Clear();
+                                Console.WriteLine(RoomQuiz.SvarMuligheder[i++]);
+                                RoomQuiz.Hints -= 1;
+                                Console.WriteLine("Du har i alt: " + RoomQuiz.Hints + " Hints");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Du har devsærre ikke nok hints. Goodluck");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Det er forkert");
+                        }
+
+
+                        Console.ReadKey();
+                    }
+                    while (QuizLoop);
+                    Console.Clear();
+                }
+                if (Id != -1)
+                {
+                    NavigateToRoom(Id++);
+                }
+
+            
+        } 
+    }
+}
