@@ -1,0 +1,254 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Spillet
+{
+    public static class RoomService
+    {
+        public static List<string[]> currentMiniQuiz = new List<string[]>()
+        {
+            new string[]{
+"","HHHIIINNNTTT","Hvor mødte vi hende først",
+            "\n1. " +
+            "\n2. " +
+            "\n3. " +
+            "\n4. ",
+"","HHHIIINNNTTT","Hvad kaldte vi hende?",
+            "\n1. The irretationg Girl" +
+            "\n2. The Girl in the flower dress" +
+            "\n3. Hedgehog" +
+            "\n4. "},
+            new string[] {
+"","HHHIIINNNTTT","Hvem fortæller os hvad obelisken egentlig er?",
+            "\n1. Dr. Whitehall" +
+            "\n2. Jieaying" +
+            "\n3. Carl" +
+            "\n4. Raina",
+"","HHHIIINNNTTT","Hvem har lavet obelisken",
+            "\n1. Garret" +
+            "\n2. Reinhart" +
+            "\n3. Kree"+
+            "\n4. Hydra" }
+        };
+       
+        public static string[] Quiz0 = {"2","Hvor kommer navnet \"The Cavalry\"","Hvad skete der i Bahrain?",
+            "\n1. Det ved vi ikke " +
+            "\n2. Hun dræbte et barn " +
+            "\n3. Hun mødte Coulson for første gang. " +
+            "\n4. Bobbi og Lance blev gift der",
+        "1","Ignore de ikke altid loven?","Hvad står S.H.I.E.L.D. Hvad står det for?",
+            "\n1. Strategic, Homeland, Intervention, Enforcement and Logistics   Division " +
+            "\n2. Science,   Humanity, Intelligence, Earth       and Law         Division " +
+            "\n3. Solving,   History,  Identifying,  Evidence    and Learners    Division" +
+            "\n4. Sixteen,   Horny,    International Eggplants   and Livestreams Division",
+        "1","Son and father","\"What are we?\"",
+            "\n1. A team" +
+            "\n2. Weirdos" +
+            "\n3. Friends" +
+            "\n4. A Family",
+        "3","Rising Tide","Hvad lavede Skye før hun var shield agent?",
+            "\n1. Arbejdede for Centipied" +
+            "\n2. En del af en teorist gruppe" +
+            "\n3. En del af en hacker gruppe" +
+            "\n4. En normal person"};
+        public static string[] Quiz1 = { "1","Boobi er hendes kælenavn, det deler ingen vokaler med hendes rigtige navn","Hvad er navnet på eks-konen?",
+            "\n1. Barbara" +
+            "\n2. Brooke" +
+            "\n3. Bea" +
+            "\n4. Beatrice",
+        "3","De refferede til hende som Hartley begge hendes navne deler 2 vokaler. ","Hvem var dum nok til at rører the diviner?",
+            "\n1. Agent 33" +
+            "\n2. Anne" +
+            "\n3. Isabelle" +
+            "\n4. Raina",
+        "1","Hvem har et navn hvor der ville stå Reinhart til sidst","Dr. Whitehall's andte navn?",
+            "\n1. Werner" +
+            "\n2. Daniel" +
+            "\n3. Calvin" +
+            "\n4. Robert",
+        "4","Tag jer sammen","Hvor bor de fleste inhumans",
+            "\n1. Afterdeath" +
+            "\n2. NewLife" +
+            "\n3. Newdeath" +
+            "\n4. Afterlife"};
+        public static string[] Quiz2 = { "4","Mays eks mand","Hvem er sendt til at dræbe/lavet Inhumans?",
+            "\n1. Jiaying" +
+            "\n2. Lincoln" +
+            "\n3. Kree" +
+            "\n4. Lash",
+        "1","Der er kun en mulighed. en af navne er et kælenavn, det 2 hendes bio navn","Hvad er skyes superhelte navn?",
+            "\n1. Quake" +
+            "\n2. Tremors" +
+            "\n3. Hun har ikke et" +
+            "\n4. Daisy",
+        "3","HHHIIINNNTTT","Hvad er nasa agents navn?",
+            "\n1. Bob" +
+            "\n2. Steve" +
+            "\n3. Will" +
+            "\n4. Matt",
+        "4","HHHIIINNNTTT","Hvilken inhuman kræft har vi ikke set indtil videre?",
+            "\n1. Chronic Vision" +
+            "\n2. Sense Manipulation" +
+            "\n3. Medusa" +
+            "\n4. Density manipulation"};
+        public static string[] Quiz3 = { "3","HHHIIINNNTTT","Hvad er Ghost Rideres alias?",
+            "\n1. Bobby" +
+            "\n2. " +
+            "\n3. Robbie" +
+            "\n4. ",
+        "2","HHHIIINNNTTT","Hvad er The Patriots alias?",
+            "\n1. Steve" +
+            "\n2. Jeffrey" +
+            "\n3. Coulson" +
+            "\n4. ",
+        "4","Altså hun er jo en robot","Hvad står AIDA for?",
+            "\n1. Attention Interest Desire Action" +
+            "\n2. Ingen ting" +
+            "\n3. Adaptable Inorganic Denderite Atom" +
+            "\n4. Artificial Intelligent Digital Assistant",
+        "2","HHHIIINNNTTT","Hvad hedder ejeren af træ fuglen",
+            "\n1. Charles" +
+            "\n2. Robin" +
+            "\n3. May" +
+            "\n4. Polly"};
+        public static string[] Quiz4 = { "4","Vi er under jorden, men hvad er over os.","Hvor er vi?",
+            "\n1. Triskellion" +
+            "\n2. Playground" +
+            "\n3. The Fridge" +
+            "\n4. lighthouse",
+        "4","Det skal jo være skræmmende","Hvad er Skyes superskurk navn?",
+            "\n1. Quake" +
+            "\n2. The Cavalry" +
+            "\n3. Tremors" +
+            "\n4. Destroyers of Worlds",
+        "2","Hvis du ikke ved det er du ikke noget til den rigtig eseason","Simmons og Fitz barnebarn hedder?",
+            "\n1. Mack" +
+            "\n2. Deke" +
+            "\n3. Nick" +
+            "\n4. Leopold",
+        "4","hvor mange af dem passer?","Hvordan kom vi her",
+            "\n1. Monolit" +
+            "\n2. Tiden gik" +
+            "\n3. Enoch" +
+            "\n4. Alle"};
+        public static string[] Quiz5 = { "2","Mærkeligt navn","Ikke Coulson, men ser ud og taler som om?",
+            "\n1. Enoch" +
+            "\n2. Sarge" +
+            "\n3. Men det er Coulson" +
+            "\n4. ",
+        "","HHHIIINNNTTT","Hvem ville \"spise\" Jorden",
+            "\n1. " +
+            "\n2. " +
+            "\n3. " +
+            "\n4. ",
+        "","Fitz bedst even","Hvem er vores bedste ven",
+            "\n1. Enoch" +
+            "\n2. Daisy" +
+            "\n3. Deke" +
+            "\n4. Coulson",
+        "","Lige nu!","Hvem er directøren af shield",
+            "\n1. Nick Fury" +
+            "\n2. Coulson" +
+            "\n3. Mackenzie" +
+            "\n4. Maverick"};
+        public static string[] Quiz6 = { "","I denne season. kæresten i denne season er?","Hvem er Daisy's \"kæreste\" og hvem er hendes søster?",
+            "\n1. Ward og Robin" +
+            "\n2. Sousa og Kora" +
+            "\n3. " +
+            "\n4. Lincoln og Jemma",
+        "","HHHIIINNNTTT","Hvor er fitz?",
+            "\n1. " +
+            "\n2. Det finder vi aldrig ud af " +
+            "\n3. " +
+            "\n4. Light House",
+        "","HHHIIINNNTTT","Hvorfor gjorde de det på den her måde?",
+            "\n1. " +
+            "\n2. " +
+            "\n3. " +
+            "\n4. ",
+        "","HHHIIINNNTTT","Hvad kæmper vi for?",
+            "\n1. Earth" +
+            "\n2. Family" +
+            "\n3. Friends" +
+            "\n4. "};
+
+
+
+        public static List<Action> room0Actions = new List<Spillet.Action>
+{
+    new Quiz(-1, "", currentMiniQuiz[0], Hints.UsesLeft),
+    new Navigation (6, "Lola. Du skynder dig at hoppe i indne Coulson opdager hun af væk og så flyver du væk."),
+    new Quiz(0, "", Quiz0, Hints.UsesLeft),
+};
+        public static List<Action> room1Actions = new List<Spillet.Action>
+{
+    new Quiz(-1, "", currentMiniQuiz[1], Hints.UsesLeft),
+    new Navigation(0, ""),
+    new Quiz(1, "", Quiz1, Hints.UsesLeft),
+};
+        public static List<Action> room2Actions = new List<Spillet.Action>
+{
+    new Navigation(0, ""),
+    new Quiz(2, "", Quiz2, Hints.UsesLeft),
+};
+        public static List<Action> room3Actions = new List<Spillet.Action>
+{
+    new Navigation(0, ""),
+    new Quiz(3, "", Quiz3, Hints.UsesLeft),
+};
+        public static List<Action> room4Actions = new List<Spillet.Action>
+{
+    new Navigation(0, ""),
+    new Quiz(4, "", Quiz4, Hints.UsesLeft),
+};
+        public static List<Action> room5Actions = new List<Spillet.Action>
+{
+    new Navigation(0, ""),
+    new Quiz(5, "", Quiz5, Hints.UsesLeft),
+};
+        public static List<Action> room6Actions = new List<Spillet.Action>
+{
+    new Navigation(0, ""),
+    new Quiz(6, "", Quiz6, Hints.UsesLeft),
+};
+
+
+
+        //Rooms
+        public static Room Room0 = new Room(1, "Velkommen til det første rum. Dette rum repræsentere sæson 1. Du er på et fly. Det ret stort. Du kigger rundt og får øje på nogle forskellige ting. " +
+                    "\nEn kjole med mange blomster på, En rød bil, en lille metal ting og døren videre til næste rum.  Hvad ville du undersøge først?", room0Actions);
+
+        public static Room Room1 = new Room(2, "Velkommen til det andet rum. Dette rum repræsentere sæson 2. Du er et eller andte mærkeligt sted i bjern." +
+            "Efter du har gået rundt lidt finder du ud af der er helt forladt bortset fra noget skrald som en fast Food rapper, Et eller andet armbånd hvor der står 00 på, en blå krystal ting og en sølv boks.", room1Actions);
+
+        public static Room Room2 = new Room(3, "Velkommen til det tredje rum. Dette rum repræsentere sæson 3.", room2Actions);
+
+        public static Room Room3 = new Room(4, "Velkommen til det fjerde rum. Dette rum repræsentere sæson 4.", room3Actions);
+
+        public static Room Room4 = new Room(5, "Velkommen til det femte rum. Dette rum repræsentere sæson 5.", room4Actions);
+
+        public static Room Room5 = new Room(6, "Velkommen til det sjette rum. Dette rum repræsentere sæson 6.", room5Actions);
+
+        public static Room Room6 = new Room(7, "Velkommen til det syvende rum. Dette rum repræsentere sæson 7.", room6Actions);
+
+
+        //Arrays Rooms
+        public static Room[] rooms = {Room0 ,Room1, Room2, Room3, Room4,
+                                       Room5, Room6 };
+        
+
+        public static void NavigateToRoom(int roomId)
+        {
+            for (int i = 0; i < rooms.Length; i++)
+            {
+                if (rooms[i].RoomId == roomId)
+                {
+                    currentRoom = rooms[i];
+                }
+            }
+        }
+    }
+}
