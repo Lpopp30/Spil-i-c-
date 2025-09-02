@@ -1,6 +1,7 @@
         using Spillet;
 
-        int currentRoomNumber = 0;
+        int input,
+            Id = 0;
 
         string roomSwitch;
 
@@ -9,18 +10,6 @@
 
 
 //ArraysItems
-List<string[]> currentMiniQuiz = new List<string[]>();
-currentMiniQuiz.Add(new string[] 
-{"","HHHIIINNNTTT","Hvor mødte vi hende først",
-            "\n1. " +
-            "\n2. " +
-            "\n3. " +
-            "\n4. ",
-"","HHHIIINNNTTT","Hvad kaldte vi hende?",
-            "\n1. " +
-            "\n2. " +
-            "\n3. " +
-            "\n4. " });
 
 
 
@@ -34,8 +23,8 @@ currentMiniQuiz.Add(new string[]
 
 
 
-        //Items Hints
-        Item Hints = new Item("Hints", "Hints kan du bruge i quizen.", 2);
+//Items Hints
+Item Hints = new Item("Hints", "Hints kan du bruge i quizen.", 2);
 
         Item SkyeChip = new Item("SkyeHint", "Efter næmmere kig kan du se at det er skyes chip med hendes liv på. Den skænker dig et hint." +
             "\n" + Hints.ItemDescription, 1);
@@ -44,10 +33,11 @@ currentMiniQuiz.Add(new string[]
         //Item Quiz
         
 
-        Item Kjole = new Item("RainaKjole", "", 0);
-        Room QuizRoom = new Room("Quiz", "Du tager nogle skidt hen mod kjolen. Hvor du opdager at det Rainas kjole. Problemmet er at ud af kjolen kommer et monster med spørgsmål.");
+        Item Kjole = new Item("RainaKjole", "Du tager nogle skidt hen mod kjolen. Hvor du opdager at det Rainas kjole. Problemmet er at ud af kjolen kommer et monster med spørgsmål.", 0);
 
         Item Obelisk = new Item("Obelisk", "", 0);
+
+
 
 //List over Items
 List<Item> currentItem = new List<Item>();
@@ -57,191 +47,7 @@ currentItem.Add(Kjole);
 currentItem.Add(Obelisk);
 
 
-//Rooms
-Room Room0 = new Room("1", "Velkommen til det første rum. Dette rum repræsentere sæson 1. Du er på et fly. Det ret stort. Du kigger rundt og får øje på nogle forskellige ting. " +
-            "\nEn kjole med mange blomster på, En rød bil, en lille metal ting og døren videre til næste rum.  Hvad ville du undersøge først?"
-             );
-
-Room Room1 = new Room("2", "Velkommen til det andet rum. Dette rum repræsentere sæson 2. Du er et eller andte mærkeligt sted i bjern." +
-    "Efter du har gået rundt lidt finder du ud af der er helt forladt bortset fra noget skrald som en fast Food rapper, Et eller andet armbånd hvor der står 00 på, en blå krystal ting og en sølv boks. ");
-
-Room Room2 = new Room("3", "Velkommen til det tredje rum. Dette rum repræsentere sæson 3.");
-
-Room Room3 = new Room("4", "Velkommen til det fjerde rum. Dette rum repræsentere sæson 4.");
-
-Room Room4 = new Room("5", "Velkommen til det femte rum. Dette rum repræsentere sæson 5.");
-
-Room Room5 = new Room("6", "Velkommen til det sjette rum. Dette rum repræsentere sæson 6.");
-
-Room Room6 = new Room("7", "Velkommen til det syvende rum. Dette rum repræsentere sæson 7.");
-
-
-//Arrays Rooms
-Room[] CurrentRoom = {Room0 ,Room1, Room2, Room3, Room4, 
-                                       Room5, Room6 };
-        string[,] CurrentQuiz = { 
-        //Sæson 1 Quiz
-        {"2","Hvor kommer navnet \"The Cavalry\"","Hvad skete der i Bahrain?",
-            "\n1. Det ved vi ikke " +
-            "\n2. Hun dræbte et barn " +
-            "\n3. Hun mødte Coulson for første gang. " +
-            "\n4. Bobbi og Lance blev gift der",
-        "1","Ignore de ikke altid loven?","Hvad står S.H.I.E.L.D. Hvad står det for?",
-            "\n1. Strategic, Homeland, Intervention, Enforcement and Logistics   Division " +
-            "\n2. Science,   Humanity, Intelligence, Earth       and Law         Division " +
-            "\n3. Solving,   History,  Identifying,  Evidence    and Learners    Division" +
-            "\n4. Sixteen,   Horny,    International Eggplants   and Livestreams Division",
-        "1","Son and father","\"What are we?\"",
-            "\n1. A team" +
-            "\n2. Weirdos" +
-            "\n3. Friends" +
-            "\n4. A Family",
-        "3","Rising Tide","Hvad lavede Skye før hun var shield agent?",
-            "\n1. Arbejdede for Centipied" +
-            "\n2. En del af en teorist gruppe" +
-            "\n3. En del af en hacker gruppe" +
-            "\n4. En normal person"},
-
-        //Sæson 2 Quiz
-        {"1","Boobi er hendes kælenavn, det deler ingen vokaler med hendes rigtige navn","Hvad er navnet på eks-konen?",
-            "\n1. Barbara" +
-            "\n2. Brooke" +
-            "\n3. Bea" +
-            "\n4. Beatrice",
-        "3","De refferede til hende som Hartley begge hendes navne deler 2 vokaler. ","Hvem var dum nok til at rører the diviner?",
-            "\n1. Agent 33" +
-            "\n2. Anne" +
-            "\n3. Isabelle" +
-            "\n4. Raina",
-        "1","Hvem har et navn hvor der ville stå Reinhart til sidst","Dr. Whitehall's andte navn?",
-            "\n1. Werner" +
-            "\n2. Daniel" +
-            "\n3. Calvin" +
-            "\n4. Robert",
-        "4","Tag jer sammen","Hvor bor de fleste inhumans",
-            "\n1. Afterdeath" +
-            "\n2. NewLife" +
-            "\n3. Newdeath" +
-            "\n4. Afterlife",},
-
-        //Sæson 3 Quiz
-        {"4","Mays eks mand","Hvem er sendt til at dræbe/lavet Inhumans?",
-            "\n1. Jiaying" +
-            "\n2. Lincoln" +
-            "\n3. Kree" +
-            "\n4. Lash",
-        "1","Der er kun en mulighed. en af navne er et kælenavn, det 2 hendes bio navn","Hvad er skyes superhelte navn?",
-            "\n1. Quake" +
-            "\n2. Tremors" +
-            "\n3. Hun har ikke et" +
-            "\n4. Daisy",
-        "3","HHHIIINNNTTT","Hvad er nasa agents navn?",
-            "\n1. Bob" +
-            "\n2. Steve" +
-            "\n3. Will" +
-            "\n4. Matt",
-        "4","HHHIIINNNTTT","Hvilken inhuman kræft har vi ikke set indtil videre?",
-            "\n1. Chronic Vision" +
-            "\n2. Sense Manipulation" +
-            "\n3. Medusa" +
-            "\n4. Density manipulation",},
-
-        //Sæson 4 Quiz
-        {"3","HHHIIINNNTTT","Hvad er Ghost Rideres alias?",
-            "\n1. " +
-            "\n2. " +
-            "\n3. Robbie" +
-            "\n4. ",
-        "2","HHHIIINNNTTT","Hvad er The Patriots alias?",
-            "\n1. " +
-            "\n2. Jeffrey" +
-            "\n3. " +
-            "\n4. ",
-        "4","HHHIIINNNTTT","Hvad står AIDA for?",
-            "\n1. Attention Interest Desire Action" +
-            "\n2. Ingen ting" +
-            "\n3. Adaptable Inorganic Denderite Atom" +
-            "\n4. Artificial Intelligent Digital Assistant",
-        "2","HHHIIINNNTTT","Hvad hedder ejeren af træ fuglen",
-            "\n1. Charles" +
-            "\n2. Robin" +
-            "\n3. May" +
-            "\n4. Polly",},
-    
-        //Sæson 5 Quiz
-        {"","HHHIIINNNTTT","Hvor er vi?",
-            "\n1. " +
-            "\n2. " +
-            "\n3. " +
-            "\n4. ",
-        "","HHHIIINNNTTT","Hvad er Skyes superskurk navn?",
-            "\n1. " +
-            "\n2. " +
-            "\n3. " +
-            "\n4. ",
-        "","HHHIIINNNTTT","Simmons og Fitz barnebarn hedder?",
-            "\n1. " +
-            "\n2. " +
-            "\n3. " +
-            "\n4. ",
-        "","HHHIIINNNTTT","Hvordan kom vi her",
-            "\n1. " +
-            "\n2. " +
-            "\n3. " +
-            "\n4. ",},
-
-        //Sæson 6 Quiz
-        {"","HHHIIINNNTTT","Ikke Coulson, men ser ud og taler som om?",
-            "\n1. " +
-            "\n2. " +
-            "\n3. " +
-            "\n4. ",
-        "","HHHIIINNNTTT","Hvem ville \"spise\" Jorden",
-            "\n1. " +
-            "\n2. " +
-            "\n3. " +
-            "\n4. ",
-        "","HHHIIINNNTTT","Hvem er vores bedste ven",
-            "\n1. " +
-            "\n2. " +
-            "\n3. " +
-            "\n4. ",
-        "","HHHIIINNNTTT","Hvem er directøren af shield",
-            "\n1. " +
-            "\n2. " +
-            "\n3. " +
-            "\n4. ",},
-
-        //Sæson 7 Quiz
-        {"","HHHIIINNNTTT","Hvem er Daisy's kæreste og hvem er hendes søster?",
-            "\n1. " +
-            "\n2. " +
-            "\n3. " +
-            "\n4. ",
-        "","HHHIIINNNTTT","Hvor er fitz?",
-            "\n1. " +
-            "\n2. " +
-            "\n3. " +
-            "\n4. ",
-        "","HHHIIINNNTTT","Hvorfor gjorde de det på den her måde?",
-            "\n1. " +
-            "\n2. " +
-            "\n3. " +
-            "\n4. ",
-        "","HHHIIINNNTTT","Hvad kæmper vi for?",
-            "\n1. " +
-            "\n2. " +
-            "\n3. " +
-            "\n4. ",}
-        };
-
-
-
-
-
-
-
-
+Room currentRoom = rooms[Id];
 
 
 Console.Clear();
@@ -250,17 +56,22 @@ Console.Clear();
         do
         {
             
-            Console.WriteLine(CurrentRoom[currentRoomNumber].RoomDescription);
+            Console.WriteLine(currentRoom.RoomDescription);
             roomSwitch = Console.ReadLine();
-
             Console.Clear();
+            int.TryParse(roomSwitch, out input);
+            Console.WriteLine(currentRoom.Actions[input--]);
+            
+
+
+
 
             switch (roomSwitch)
             {
 
                 case "1":
                     {
-                        QuizRoom.MiniQuiz(currentMiniQuiz[Kjole.UsesLeft], Hints.UsesLeft);
+                
                         Console.ReadKey();
                         break;
                     }
@@ -282,7 +93,7 @@ Console.Clear();
                 //Dør
                 case "4":
                     {
-                        QuizRoom.Quiz(CurrentQuiz, ref currentRoomNumber, Hints.UsesLeft);
+                        
                         Console.ReadKey();
                         break;
                     }
@@ -305,4 +116,8 @@ Console.Clear();
 
 
 
-        Console.ReadKey();
+
+        
+
+Console.ReadKey();
+
