@@ -30,6 +30,7 @@ namespace Spillet
             }
             public void FindHints(int usesLeft)
             {
+                Console.WriteLine(ItemDescription);
                 UsesLeft += usesLeft;
                 Console.WriteLine("Du har i alt: " + UsesLeft + " Hints");
             }
