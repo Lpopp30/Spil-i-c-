@@ -17,33 +17,34 @@ namespace Spillet
             SvarMuligheder = svarMuligheder;
             Hints = hints;
         }
-       
 
-            void BigQuiz(Quiz RoomQuiz)
+
+        public override void Execute()
             {
-                for (int i = 0; i < RoomQuiz.SvarMuligheder.Length; i += 4)
+                for (int i = 0; i < SvarMuligheder.Length; i += 4)
                 {
 
                     bool QuizLoop = true;
                     do
                     {
                         Console.WriteLine("Her er dine spørgsmål for at komme ud af rummet. For at bruge et hint. skriv \"hint\"");
-                        Console.WriteLine(RoomQuiz.SvarMuligheder[i + 2] + RoomQuiz.SvarMuligheder[i + 3]);
+                        Console.WriteLine(SvarMuligheder[i + 2] + SvarMuligheder[i + 3]);
                         string BrugerSvar = Console.ReadLine().ToLower();
 
-                        if (RoomQuiz.SvarMuligheder[i] == BrugerSvar)
+                        if (SvarMuligheder[i] == BrugerSvar)
                         {
                             Console.WriteLine("Det var rigtigt");
                             QuizLoop = false;
                         }
                         else if (BrugerSvar == "hint")
                         {
-                            if (RoomQuiz.Hints > 0)
+                            if (Hints > 0)
                             {
                                 Console.Clear();
-                                Console.WriteLine(RoomQuiz.SvarMuligheder[i++]);
-                                RoomQuiz.Hints -= 1;
-                                Console.WriteLine("Du har i alt: " + RoomQuiz.Hints + " Hints");
+                                int a = i + 1;
+                                Console.WriteLine(SvarMuligheder[a]);
+                                Hints -= 1;
+                                Console.WriteLine("Du har i alt: " + Hints + " Hints");
                             }
                             else
                             {
@@ -63,10 +64,13 @@ namespace Spillet
                 }
                 if (Id != -1)
                 {
-                    NavigateToRoom(Id++);
+                new Navigation(Id, "").Execute();
                 }
 
-            
-        } 
+
+            }
+
+
+
     }
 }
