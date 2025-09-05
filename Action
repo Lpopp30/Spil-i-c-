@@ -16,7 +16,10 @@ namespace Spillet
             Id = id;
             Description = description;
         }
-        
+
+        public abstract void Execute();
+
+
     }
     
 
