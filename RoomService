@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,6 +9,10 @@ namespace Spillet
 {
     public static class RoomService
     {
+
+
+        
+
         public static List<string[]> currentMiniQuiz = new List<string[]>()
         {
             new string[]{
@@ -33,7 +38,7 @@ namespace Spillet
             "\n3. Kree"+
             "\n4. Hydra" }
         };
-       
+
         public static string[] Quiz0 = {"2","Hvor kommer navnet \"The Cavalry\"","Hvad skete der i Bahrain?",
             "\n1. Det ved vi ikke " +
             "\n2. Hun dræbte et barn " +
@@ -179,76 +184,90 @@ namespace Spillet
 
         public static List<Action> room0Actions = new List<Spillet.Action>
 {
-    new Quiz(-1, "", currentMiniQuiz[0], Hints.UsesLeft),
-    new Navigation (6, "Lola. Du skynder dig at hoppe i indne Coulson opdager hun af væk og så flyver du væk."),
-    new Quiz(0, "", Quiz0, Hints.UsesLeft),
+        new Quiz(-1, ItemService.Kjole.Description, currentMiniQuiz[0], ItemService.Hints.UsesLeft),
+        new Item("SkyeHint", 3, -1, "Efter næmmere kig kan du se at det er skyes chip med hendes liv på. Den skænker dig et hint." +
+            "\n" + ItemService.Hints.Description),
+        new Navigation (6, "Lola. Du skynder dig at hoppe i, inden Coulson opdager at hun er væk, og så flyver du væk."),
+        new Quiz(2, "Velkommen til den store Quiz for sæson 1", Quiz0, ItemService.Hints.UsesLeft),
 };
         public static List<Action> room1Actions = new List<Spillet.Action>
 {
-    new Quiz(-1, "", currentMiniQuiz[1], Hints.UsesLeft),
+    new Quiz(-1, "", currentMiniQuiz[1], ItemService.Hints.UsesLeft),
     new Navigation(0, ""),
-    new Quiz(1, "", Quiz1, Hints.UsesLeft),
+    new Quiz(3, "Velkommen til den store Quiz for sæson 2", Quiz1, ItemService.Hints.UsesLeft),
 };
         public static List<Action> room2Actions = new List<Spillet.Action>
 {
     new Navigation(0, ""),
-    new Quiz(2, "", Quiz2, Hints.UsesLeft),
+    new Quiz(4, "Velkommen til den store Quiz for sæson 3", Quiz2, ItemService.Hints.UsesLeft),
 };
         public static List<Action> room3Actions = new List<Spillet.Action>
 {
     new Navigation(0, ""),
-    new Quiz(3, "", Quiz3, Hints.UsesLeft),
+    new Quiz(5, "Velkommen til den store Quiz for sæson 4", Quiz3, ItemService.Hints.UsesLeft),
 };
         public static List<Action> room4Actions = new List<Spillet.Action>
 {
     new Navigation(0, ""),
-    new Quiz(4, "", Quiz4, Hints.UsesLeft),
+    new Quiz(6, "Velkommen til den store Quiz for sæson 5", Quiz4, ItemService.Hints.UsesLeft),
 };
         public static List<Action> room5Actions = new List<Spillet.Action>
 {
     new Navigation(0, ""),
-    new Quiz(5, "", Quiz5, Hints.UsesLeft),
+    new Quiz(7, "Velkommen til den store Quiz for sæson 6", Quiz5, ItemService.Hints.UsesLeft),
 };
         public static List<Action> room6Actions = new List<Spillet.Action>
 {
     new Navigation(0, ""),
-    new Quiz(6, "", Quiz6, Hints.UsesLeft),
+    new Quiz(7, "Velkommen til den store Quiz for sæson 7", Quiz6, ItemService.Hints.UsesLeft),
 };
 
 
+        public static List<Room> rooms = new List<Room>
+        {
+            new Room(1, "Velkommen til det første rum. Dette rum repræsentere sæson 1. \nDu er på et fly. Det ret stort. Du kigger rundt og får øje på nogle forskellige ting. " +
+                "\nEn kjole med mange blomster på. \nEn rød bil. \nEn lille metal ting \nEn dør der går videre til næste rum. \nHvad ville du undersøge først?", room0Actions),
 
-        //Rooms
-        public static Room Room0 = new Room(1, "Velkommen til det første rum. Dette rum repræsentere sæson 1. Du er på et fly. Det ret stort. Du kigger rundt og får øje på nogle forskellige ting. " +
-                    "\nEn kjole med mange blomster på, En rød bil, en lille metal ting og døren videre til næste rum.  Hvad ville du undersøge først?", room0Actions);
+            new Room(2, "Velkommen til det andet rum. Dette rum repræsentere sæson 2. Du er et eller andte mærkeligt sted i bjern." +
+            "Efter du har gået rundt lidt finder du ud af der er helt forladt bortset fra noget skrald som en fast Food rapper, Et eller andet armbånd hvor der står 00 på, en blå krystal ting og en sølv boks.", room1Actions),
 
-        public static Room Room1 = new Room(2, "Velkommen til det andet rum. Dette rum repræsentere sæson 2. Du er et eller andte mærkeligt sted i bjern." +
-            "Efter du har gået rundt lidt finder du ud af der er helt forladt bortset fra noget skrald som en fast Food rapper, Et eller andet armbånd hvor der står 00 på, en blå krystal ting og en sølv boks.", room1Actions);
+            new Room(3, "Velkommen til det tredje rum. Dette rum repræsentere sæson 3.", room2Actions),
 
-        public static Room Room2 = new Room(3, "Velkommen til det tredje rum. Dette rum repræsentere sæson 3.", room2Actions);
+            new Room(4, "Velkommen til det fjerde rum. Dette rum repræsentere sæson 4.", room3Actions),
 
-        public static Room Room3 = new Room(4, "Velkommen til det fjerde rum. Dette rum repræsentere sæson 4.", room3Actions);
+            new Room(5, "Velkommen til det femte rum. Dette rum repræsentere sæson 5.", room4Actions),
 
-        public static Room Room4 = new Room(5, "Velkommen til det femte rum. Dette rum repræsentere sæson 5.", room4Actions);
+            new Room(6, "Velkommen til det sjette rum. Dette rum repræsentere sæson 6.", room5Actions),
 
-        public static Room Room5 = new Room(6, "Velkommen til det sjette rum. Dette rum repræsentere sæson 6.", room5Actions);
+            new Room(7, "Velkommen til det syvende rum. Dette rum repræsentere sæson 7.", room6Actions),
+        };
 
-        public static Room Room6 = new Room(7, "Velkommen til det syvende rum. Dette rum repræsentere sæson 7.", room6Actions);
+
+
+        public static Room currentRoom = rooms[0];
+        
+
+
 
 
         //Arrays Rooms
-        public static Room[] rooms = {Room0 ,Room1, Room2, Room3, Room4,
-                                       Room5, Room6 };
-        
+
+
+        //Rooms
+
 
         public static void NavigateToRoom(int roomId)
         {
-            for (int i = 0; i < rooms.Length; i++)
+            
+            for (int i = 0; i < rooms.Count; i++)
             {
-                if (rooms[i].RoomId == roomId)
+                if (rooms[i] != null && rooms[i].RoomId == roomId)
                 {
                     currentRoom = rooms[i];
+                    break;
                 }
             }
         }
+
     }
 }
