@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Spillet
+{
+    public static class ItemService
+    {
+        //Items Hints
+        public static Item Hints = new Item("Hints", 2, -1, "Hints kan du bruge i quizen.");
+
+
+        //Item Quiz
+
+
+        public static Item Kjole = new Item("RainaKjole", 0, -1, "Du tager nogle skidt hen mod kjolen. Hvor du opdager at det Rainas kjole. Problemmet er at ud af kjolen kommer et monster med spørgsmål.");
+
+        public static Item Obelisk = new Item("Obelisk", 0, -1, "");
+
+
+        //List over Items
+        public static List<Item> ItemList = new List<Item>();
+        
+
+        public static void ItemsInList()
+        {
+            ItemList.Add(Hints);
+            ItemList.Add(Hints);
+            ItemList.Add(Hints);
+            ItemList.Add(Hints);
+        }
+
+
+
+
+
+
+
+    }
+}
