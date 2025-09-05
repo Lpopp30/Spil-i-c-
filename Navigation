@@ -9,10 +9,16 @@ namespace Spillet
 
     class Navigation : Action
     {
+
         public Navigation(int id, string description) : base(id, description)
         {
-            Console.WriteLine(description);
-            NavigateToRoom(id);
+            Description = description;
+            Id = id;
+        }
+        public override void Execute()
+        {
+            
+            RoomService.NavigateToRoom(Id);
         }
         /*
         public override void Execute()
