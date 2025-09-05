@@ -6,49 +6,33 @@ using System.Threading.Tasks;
 
 namespace Spillet
 {
-    
-        public class Item
+
+    public class Item : Action
+    {
+
+        public string ItemName { get; set; }
+        public int UsesLeft { get; set; }
+        public int usesLeft { get; set; }
+
+        public Item(string itemName, int usesLeft, int id, string description) : base(id, description)
         {
-
-            public string ItemName { get; set; }
-            public string ItemDescription { get; set; }
-            public int UsesLeft { get; set; }
-
-            public Item(string itemName, string itemDescription, int usesLeft)
             {
                 ItemName = itemName;
-                ItemDescription = itemDescription;
                 UsesLeft = usesLeft;
 
             }
 
-            public void UseHints(int usesLeft)
-            {
-                UsesLeft -= usesLeft;
-                Console.WriteLine("Du har i alt: " + UsesLeft + " Hints");
-
-            }
-            public void FindHints(int usesLeft)
-            {
-                Console.WriteLine(ItemDescription);
-                UsesLeft += usesLeft;
-                Console.WriteLine("Du har i alt: " + UsesLeft + " Hints");
-            }
-
-
         }
 
-        class Weapon : Item
+        public override void Execute()
         {
-
-            public string WeaponName { get; set; }
-            public string WeaponDescription { get; set; }
-
-            public Weapon(string weaponName, string weaponDescription, int usesLeft) : base(weaponName, weaponDescription, usesLeft)
-            {
-
-            }
-
+            
+            UsesLeft += usesLeft;
+            Console.WriteLine("Du har i alt: " + UsesLeft + " Hints");
         }
     }
+}
+
+
+    
 
