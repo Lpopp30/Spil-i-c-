@@ -8,11 +8,11 @@ namespace Spillet
 {
     public static class Players
     {
-        public static double Lives { get; set; }
+        public static double Health { get; set; }
 
         static Players()
         {
-            Lives = 100;
+            Health = 100;
 
         }
 
