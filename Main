@@ -4,89 +4,31 @@
 
         string roomSwitch;
 
-bool roomLoop = true;
-
-
-//alle Objekter der skal laves til at starte med
-
-
-
-
-
-        
-
+        bool roomLoop = true,
+             canIt = true;
 
 
         Console.Clear();
         Console.WriteLine("Velkommen til mit spil. Håber du har styr på S.H.I.E.L.D. ellers bliver det måske ikke så sjovt");
-
-
 do
         {
-    
     Console.WriteLine(RoomService.currentRoom.RoomDescription);
-           
             roomSwitch = Console.ReadLine();
             Console.Clear();
-            int.TryParse(roomSwitch, out input);
+            canIt = int.TryParse(roomSwitch, out input);
             input--;
-    if (input >= 0 && input < RoomService.currentRoom.Actions.Count)
+    if (input >= 0 && input < RoomService.currentRoom.Actions.Count && canIt)
     {
-        
         Console.WriteLine(RoomService.currentRoom.Actions[input].Description);
         RoomService.currentRoom.Actions[input].Execute();
-
     }
     else
     {
         Console.WriteLine("Der er sket en fejl. Tryk enter og prøv venligst igen");
-        Console.ReadKey();
-        Console.Clear();
-    }
-
-
-
-            switch (roomSwitch)
-            {
-
-                case "1":
-                    {
-                
-                        Console.ReadKey();
-                        break;
-                    }
-
-                case "2":
-                    {
-                        //Console.WriteLine(ItemService.SkyeChip.ItemDescription);
-                        //ItemService.Hints.FindHints(ItemService.SkyeChip.UsesLeft, ItemService.SkyeChip);
-                        Console.ReadKey();
-                        break;
-                    }
-                //Lola
-                case "3":
-                    {
-
-                        Console.ReadKey();
-                        break;
-                    }
-                //Dør
-                case "4":
-                    {
-                        
-                        Console.ReadKey();
-                        break;
-                    }
-                default:
-                    {
-                        Console.WriteLine("Der er sket en fejl. Tryk enter og prøv venligst igen");
-                        Console.ReadKey();
-                        Console.Clear();
-                        break;
-                    }
-            }
-
         
+    }
+    Console.ReadKey();
+    Console.Clear();
 }
         while (roomLoop);
 
