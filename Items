@@ -12,23 +12,20 @@ namespace Spillet
 
         public string ItemName { get; set; }
         public int UsesLeft { get; set; }
-        public int usesLeft { get; set; }
-
+        
         public Item(string itemName, int usesLeft, int id, string description) : base(id, description)
         {
             {
                 ItemName = itemName;
                 UsesLeft = usesLeft;
-
             }
 
         }
 
         public override void Execute()
         {
-            
-            UsesLeft += usesLeft;
-            Console.WriteLine("Du har i alt: " + UsesLeft + " Hints");
+            ItemService.Hints.UsesLeft += UsesLeft;
+            Console.WriteLine("Du har i alt: " + ItemService.Hints.UsesLeft + " Hints");
         }
     }
 }
