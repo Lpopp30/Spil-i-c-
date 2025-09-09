@@ -17,7 +17,6 @@ namespace Spillet
         }
         public override void Execute()
         {
-            
             RoomService.NavigateToRoom(Id);
         }
         /*
