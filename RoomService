@@ -10,9 +10,6 @@ namespace Spillet
     public static class RoomService
     {
 
-
-        
-
         public static List<string[]> currentMiniQuiz = new List<string[]>()
         {
             new string[]{
@@ -21,22 +18,55 @@ namespace Spillet
             "\n2. " +
             "\n3. " +
             "\n4. ",
-"","HHHIIINNNTTT","Hvad kaldte vi hende?",
-            "\n1. The irretationg Girl" +
+"2","Vors første intruduktion til hende var ikke en samtale","Hvad kaldte vi hende?",
+            "\n1. The Irretationg Girl" +
             "\n2. The Girl in the flower dress" +
             "\n3. Hedgehog" +
-            "\n4. "},
+            "\n4. Centepiede Gilr"},
             new string[] {
-"","HHHIIINNNTTT","Hvem fortæller os hvad obelisken egentlig er?",
+"3","Skyes far? eller var det mor?","Hvem fortæller os hvad obelisken egentlig er?",
             "\n1. Dr. Whitehall" +
             "\n2. Jieaying" +
             "\n3. Carl" +
             "\n4. Raina",
-"","HHHIIINNNTTT","Hvem har lavet obelisken",
+"3","Hvem har lavet inhumans","Hvem har lavet obelisken",
             "\n1. Garret" +
             "\n2. Reinhart" +
             "\n3. Kree"+
-            "\n4. Hydra" }
+            "\n4. Hydra" },
+            new string[] {
+"4","Det er ikke det samme som i den dimmension vi kender","Hvad er Ward i denne dimmension",
+            "\n1. Loyal til Hydra" +
+            "\n2. Loyal til Garret" +
+            "\n3. Loyal til Skye" +
+            "\n4. Loyal til Shield",
+"2","Personens ændring er hvem han blev opvokset af","Hvem er chefen af Hydra i denne dimmension",
+            "\n1. Madame Hydra" +
+            "\n2. Leopold" +
+            "\n3. Garret"+
+            "\n4. Agent May" },
+            new string[] {
+"","","Hvad hedder manden i væggen",
+            "\n1. " +
+            "\n2. " +
+            "\n3. Sarge" +
+            "\n4. ",
+"4","","Hvem er manden i væggens fjender",
+            "\n1. Hydra" +
+            "\n2. Shield" +
+            "\n3. Chronnicoms"+
+            "\n4. Izel" },
+            new string[] {
+"3","Coulson","Hvad er jeg",
+            "\n1. Robot" +
+            "\n2. LMD" +
+            "\n3. Cronicom" +
+            "\n4. Menneske",
+"","","Hvem har bygget mig?",
+            "\n1. " +
+            "\n2. " +
+            "\n3. "+
+            "\n4. " }
         };
 
         public static string[] Quiz0 = {"2","Hvor kommer navnet \"The Cavalry\"","Hvad skete der i Bahrain?",
@@ -99,22 +129,22 @@ namespace Spillet
             "\n2. Sense Manipulation" +
             "\n3. Medusa" +
             "\n4. Density manipulation"};
-        public static string[] Quiz3 = { "3","HHHIIINNNTTT","Hvad er Ghost Rideres alias?",
+        public static string[] Quiz3 = { "3","Reyes til efter navn, der er ikk et bedre hint","Hvad er Ghost Rideres alias?",
             "\n1. Bobby" +
-            "\n2. " +
+            "\n2. Bob" +
             "\n3. Robbie" +
-            "\n4. ",
-        "2","HHHIIINNNTTT","Hvad er The Patriots alias?",
+            "\n4. Bond",
+        "2","I skal huske at jeg har kulle finde på de forkerte svar. Hvor doven er jeg","Hvad er The Patriots alias?",
             "\n1. Steve" +
             "\n2. Jeffrey" +
             "\n3. Coulson" +
-            "\n4. ",
+            "\n4. Bob",
         "4","Altså hun er jo en robot","Hvad står AIDA for?",
             "\n1. Attention Interest Desire Action" +
             "\n2. Ingen ting" +
             "\n3. Adaptable Inorganic Denderite Atom" +
             "\n4. Artificial Intelligent Digital Assistant",
-        "2","HHHIIINNNTTT","Hvad hedder ejeren af træ fuglen",
+        "2","Det er din lille pige ","Hvad hedder ejeren af træ fuglen",
             "\n1. Charles" +
             "\n2. Robin" +
             "\n3. May" +
@@ -144,118 +174,164 @@ namespace Spillet
             "\n2. Sarge" +
             "\n3. Men det er Coulson" +
             "\n4. ",
-        "","HHHIIINNNTTT","Hvem ville \"spise\" Jorden",
-            "\n1. " +
-            "\n2. " +
-            "\n3. " +
-            "\n4. ",
-        "","Fitz bedst even","Hvem er vores bedste ven",
+        "3","Det er 1 person","Hvem ville \"spise\" Jorden",
+            "\n1. Kree" +
+            "\n2. Chronicomsne" +
+            "\n3. Izel" +
+            "\n4. Talbot",
+        "1","Fitz bedst even","Hvem er vores bedste ven",
             "\n1. Enoch" +
             "\n2. Daisy" +
             "\n3. Deke" +
             "\n4. Coulson",
-        "","Lige nu!","Hvem er directøren af shield",
+        "3","Lige nu!","Hvem er directøren af shield",
             "\n1. Nick Fury" +
             "\n2. Coulson" +
             "\n3. Mackenzie" +
             "\n4. Maverick"};
-        public static string[] Quiz6 = { "","I denne season. kæresten i denne season er?","Hvem er Daisy's \"kæreste\" og hvem er hendes søster?",
+        public static string[] Quiz6 = { "2","I denne season. kæresten i denne season er?","Hvem er Daisy's \"kæreste\" og hvem er hendes søster?",
             "\n1. Ward og Robin" +
             "\n2. Sousa og Kora" +
             "\n3. " +
             "\n4. Lincoln og Jemma",
-        "","HHHIIINNNTTT","Hvor er fitz?",
-            "\n1. " +
+        "3","Han er et sted der give rlogisk mening","Hvor er fitz?",
+            "\n1. Han flyver rundt i rummet" +
             "\n2. Det finder vi aldrig ud af " +
-            "\n3. " +
+            "\n3. Han er der hvor de efter ladte ham, med Izel" +
             "\n4. Light House",
         "","HHHIIINNNTTT","Hvorfor gjorde de det på den her måde?",
             "\n1. " +
             "\n2. " +
             "\n3. " +
             "\n4. ",
-        "","HHHIIINNNTTT","Hvad kæmper vi for?",
+        "2","Hvad er de som ikke er et team","Hvad kæmper vi for?",
             "\n1. Earth" +
             "\n2. Family" +
             "\n3. Friends" +
-            "\n4. "};
+            "\n4. Hail Hydra"};
 
 
 
         public static List<Action> room0Actions = new List<Spillet.Action>
-{
-        new Quiz(-1, ItemService.Kjole.Description, currentMiniQuiz[0], ItemService.Hints.UsesLeft),
-        new Item("SkyeHint", 3, -1, "Efter næmmere kig kan du se at det er skyes chip med hendes liv på. Den skænker dig et hint." +
-            "\n" + ItemService.Hints.Description),
-        new Navigation (6, "Lola. Du skynder dig at hoppe i, inden Coulson opdager at hun er væk, og så flyver du væk."),
-        new Quiz(2, "Velkommen til den store Quiz for sæson 1", Quiz0, ItemService.Hints.UsesLeft),
-};
+        {
+            new Quiz      (-1, ItemService.Kjole.Description, currentMiniQuiz[0], ItemService.Hints.UsesLeft),
+            new Navigation(4, "Lola. Du skynder dig at hoppe i, inden Coulson opdager at hun er væk, og så flyver du væk."),
+            new Item      ("SkyeHint", 1, -1, "Efter næmmere kig kan du se at det er skyes chip med hendes liv på. Den skænker dig et hint." +
+                             "\n" + ItemService.Hints.Description),
+            new Quiz      (2, "Velkommen til den store Quiz for sæson 1", Quiz0, ItemService.Hints.UsesLeft),
+        };
         public static List<Action> room1Actions = new List<Spillet.Action>
-{
-    new Quiz(-1, "", currentMiniQuiz[1], ItemService.Hints.UsesLeft),
-    new Navigation(0, ""),
-    new Quiz(3, "Velkommen til den store Quiz for sæson 2", Quiz1, ItemService.Hints.UsesLeft),
-};
+        {
+            new Item      ("FoodRapper", 1, -1, "Du åbner den og ser at du kan bruge den som et hint" +
+                             "\n" + ItemService.Hints.Description),
+            
+            new Quiz      (3, "Velkommen til den store Quiz for sæson 2", Quiz1, ItemService.Hints.UsesLeft),
+            new Quiz      (-1, ItemService.Obelisk.Description, currentMiniQuiz[1], ItemService.Hints.UsesLeft),
+
+        };
         public static List<Action> room2Actions = new List<Spillet.Action>
-{
-    new Navigation(0, ""),
-    new Quiz(4, "Velkommen til den store Quiz for sæson 3", Quiz2, ItemService.Hints.UsesLeft),
-};
+        {
+            new Quiz      (4, "Velkommen til den store Quiz for sæson 3", Quiz2, ItemService.Hints.UsesLeft),
+            new Item      ("FishOil", 2, -1, "Du åbner beholderen og finder to kapsler. Den skænker dig hver et hint." +
+                             "\n" + ItemService.Hints.Description),
+
+            new Navigation(5, "Træ fuglenen flyver dig hen til den season den er mest vigtig i."),
+        };
         public static List<Action> room3Actions = new List<Spillet.Action>
-{
-    new Navigation(0, ""),
-    new Quiz(5, "Velkommen til den store Quiz for sæson 4", Quiz3, ItemService.Hints.UsesLeft),
-};
+        {
+            new Quiz      (5, "Velkommen til den store Quiz for sæson 4", Quiz3, ItemService.Hints.UsesLeft),
+            new Item      ("Darkhold", 1, -1, "Darkholden viser dig hvad du søger så brug den når du har behov for hjælp" +
+                             "\n" + ItemService.Hints.Description),
+
+            new Quiz      (-1, ItemService.PictureFrame.Description, currentMiniQuiz[0], ItemService.Hints.UsesLeft),
+        };
         public static List<Action> room4Actions = new List<Spillet.Action>
-{
-    new Navigation(0, ""),
-    new Quiz(6, "Velkommen til den store Quiz for sæson 5", Quiz4, ItemService.Hints.UsesLeft),
-};
+        {
+
+            new Item      ("ArmThing", 1, -1, "" +
+                             "\n" + ItemService.Hints.Description),
+            new Quiz      (6, "Velkommen til den store Quiz for sæson 5", Quiz4, ItemService.Hints.UsesLeft),
+            new Navigation(0, ""),
+        };
         public static List<Action> room5Actions = new List<Spillet.Action>
-{
-    new Navigation(0, ""),
-    new Quiz(7, "Velkommen til den store Quiz for sæson 6", Quiz5, ItemService.Hints.UsesLeft),
-};
+        {
+            new Quiz      (7, "Velkommen til den store Quiz for sæson 6", Quiz5, ItemService.Hints.UsesLeft),
+            new Navigation(0, ""),
+
+            new Quiz      (-1, ItemService.ManWall.Description, currentMiniQuiz[0], ItemService.Hints.UsesLeft),
+        };
         public static List<Action> room6Actions = new List<Spillet.Action>
-{
-    new Navigation(0, ""),
-    new Quiz(7, "Velkommen til den store Quiz for sæson 7", Quiz6, ItemService.Hints.UsesLeft),
-};
+        {
+            new Quiz      (7, "Velkommen til den store Quiz for sæson 7", Quiz6, ItemService.Hints.UsesLeft),
+
+            new Quiz      (-1, ItemService.Coulson.Description, currentMiniQuiz[0], ItemService.Hints.UsesLeft),
+            new Item      ("Enoch", 1, -1, "" +
+                             "\n" + ItemService.Hints.Description),
+        };
 
 
         public static List<Room> rooms = new List<Room>
         {
-            new Room(1, "Velkommen til det første rum. Dette rum repræsentere sæson 1. \nDu er på et fly. Det ret stort. Du kigger rundt og får øje på nogle forskellige ting. " +
-                "\nEn kjole med mange blomster på. \nEn rød bil. \nEn lille metal ting \nEn dør der går videre til næste rum. \nHvad ville du undersøge først?", room0Actions),
+            new Room(1, "Velkommen til det første rum. Dette rum repræsentere sæson 1. " +
+                            "\nDu er på et fly. Det ret stort. Du kigger rundt og får øje på nogle forskellige ting. " +
+                                "\nEn kjole med mange blomster på. " +
+                                "\nEn rød bil. " +
+                                "\nEn lille metal ting " +
+                                "\nEn dør der går videre til næste rum. " +
+                "\nHvad ville du undersøge først?", room0Actions),
 
-            new Room(2, "Velkommen til det andet rum. Dette rum repræsentere sæson 2. Du er et eller andte mærkeligt sted i bjern." +
-            "Efter du har gået rundt lidt finder du ud af der er helt forladt bortset fra noget skrald som en fast Food rapper, Et eller andet armbånd hvor der står 00 på, en blå krystal ting og en sølv boks.", room1Actions),
+            new Room(2, "Velkommen til det andet rum. Dette rum repræsentere sæson 2. " +
+                            "\nDu er et eller andte mærkeligt sted i bjernene. \nEfter du har gået rundt lidt finder du ud af det er helt forladt bortset fra noget skrald som en " +
+                                "\nFast Food rapper " +
+                                "\nEt eller andet armbånd hvor der står 00 på *****" +
+                                "\nEn blå krystal ting " +
+                                "\nEn sølv boks." +
+                "\nHvad ville du undersøge først?", room1Actions),
 
-            new Room(3, "Velkommen til det tredje rum. Dette rum repræsentere sæson 3.", room2Actions),
+            new Room(3, "Velkommen til det tredje rum. Dette rum repræsentere sæson 3. " +
+                            "\nDu husker ikke meget andet en at en kæmpe sten blev til væske og opslugte dig. \nNu er du på en anden planet. Rundt om dig opdager du dog stadig ting fra Jorden. " +
+                                "\nDu ser en stor sten foran dig, den ligner lidt den der også fik dig hertil" +
+                                "\nNede ved dine føder ser du en lille pille æske" +
+                                "\nEn rulle papir, hvor der står et eller andet*******" +
+                                "\nEn træ fugl" +
+                "\nHvad ville du undersøge først?", room2Actions),
 
-            new Room(4, "Velkommen til det fjerde rum. Dette rum repræsentere sæson 4.", room3Actions),
+            new Room(4, "Velkommen til det fjerde rum. Dette rum repræsentere sæson 4." +
+                            "\nDu kigger rundt og opdager at du er på Jorden? På en helt normal gade. Efter to sekunder ser du en sort bil komme kørende. " +
+                            "\nMed et Hydra logo på siden. Du skynder dig hurtigt at dukke bag en busk. Hvor du opdager nogle forskellig eting" +
+                                "\nEt kranie, efter nogle sekunder begynder det at brænde" +
+                                "\nEn bog, med titlen Darkhold, ingen forfater dog" +
+                                "\nSæbe, sæbe ved ikke hvad jeg mere skal sige******" +
+                                "\nEn billede ramme med et billede i af et eller andet par" +
+                "\nHvad ville du undersøge først?", room3Actions),
 
-            new Room(5, "Velkommen til det femte rum. Dette rum repræsentere sæson 5.", room4Actions),
+            new Room(5, "Velkommen til det femte rum. Dette rum repræsentere sæson 5." +
+                            "\nDer mørkt omkring dig men du hører maskiner arbejde. Du går rundt i nogle gange og har fundet nogle forskellige ting på vejen. " +
+                                "\nI en af rummene ser du en stor kasse med noget mærkligt sølv farvet inden i. Det bevæger sig som væske men flyver inden i boksen*******" +
+                                "\nPå vejen rundt i gangene fandt du også et slags armbånd, du har dog ikke lyst til at tage det på da det ligner at den ville bore sig ind i din arm." +
+                                "\nDu gik forbi et kæmpe rum men turde ikke at gå ind. da du så en rift i luften og der var skove og stjerne på den anden side af den. " +
+                                "\nI det rum du først var i var en mærkelig kapsel stor nok til at have en voksen mand i. " +
+                "\nHvad ville du undersøge først?", room4Actions),
 
-            new Room(6, "Velkommen til det sjette rum. Dette rum repræsentere sæson 6.", room5Actions),
+            new Room(6, "Velkommen til det sjette rum. Dette rum repræsentere sæson 6." +
+                            "\nDu er i et helt hvid rum. Tomt endda. Eller næsten. " +
+                                "\nEn stor bunke metal. " +
+                                "\n En sand bunke" +
+                                "\n Et sværd*******" +
+                                "\n Og en væg, hvor det ligner mand prøver at løbe ud af, men han er frosset." +
+                "\nHvad ville du undersøge først?", room5Actions),
 
-            new Room(7, "Velkommen til det syvende rum. Dette rum repræsentere sæson 7.", room6Actions),
+            new Room(7, "Velkommen til det syvende rum. Dette rum repræsentere sæson 7." +
+                            "\nDu er nede i en bar en eller anden slags. Der står en mand bag baren" +
+                                "\n Ovre i hjørnet står der en stor metal ting der lyser blåt" +
+                                "\n På en af væggende hænger der et jakkesæt*********" +
+                                "\n Foran manden ved baren ligger der en knap der lyser grønt" +
+                                "\n Manden ved baren, han er skaldet" +
+                "\nHvad ville du undersøge først?", room6Actions),
         };
 
-
-
         public static Room currentRoom = rooms[0];
-        
-
-
-
-
-        //Arrays Rooms
-
-
-        //Rooms
-
-
+ 
         public static void NavigateToRoom(int roomId)
         {
             
