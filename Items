@@ -6,88 +6,30 @@ using System.Threading.Tasks;
 
 namespace Spillet
 {
-    public class Quiz : Action
+
+    public class Item : Action
     {
-        public string[] SvarMuligheder { get; set; }
 
-        public int Hints { get; set; }
-
-        public Quiz(int id, string description, string[] svarMuligheder, int hints) : base(id, description)
+        public string ItemName { get; set; }
+        public int UsesLeft { get; set; }
+        
+        public Item(string itemName, int usesLeft, int id, string description) : base(id, description)
         {
-            SvarMuligheder = svarMuligheder;
-            Hints = hints;
-        }
+            {
+                ItemName = itemName;
+                UsesLeft = usesLeft;
+            }
 
+        }
 
         public override void Execute()
         {
-            for (int i = 0; i < SvarMuligheder.Length; i += 4)
-            {
-                
-                bool QuizLoop = true;
-                do
-                {
-                    Console.Clear();
-                    Console.WriteLine("Her er dine spørgsmål for at komme ud af rummet. For at bruge et object. skriv \"Ob\"");
-                    Console.WriteLine(SvarMuligheder[i + 2] + SvarMuligheder[i + 3]);
-                    string BrugerSvar = Console.ReadLine().ToLower();
-                    int.TryParse(BrugerSvar, out int BrugerSvarTal);
-
-                    if (SvarMuligheder[i] == BrugerSvar)
-                    {
-                        Console.WriteLine("Det var rigtigt");
-                        QuizLoop = false;
-                        if (Id <= -1)
-                        {
-                            Id -= 1;
-                        }
-                    }
-                    else if (BrugerSvar == "ob")
-                    {
-                        Console.WriteLine("Hvilket object ville du bruge ");
-                        if (ItemService.Hints.UsesLeft > 0)
-                        {
-                            Console.Clear();
-                            int a = i + 1;
-                            Console.WriteLine(SvarMuligheder[a]);
-                            ItemService.Hints.UsesLeft -= 1;
-                            Console.WriteLine("Du har i alt: " + ItemService.Hints.UsesLeft + " Hints");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Du har devsærre ikke nok hints. Goodluck");
-                        }
-                    }
-                    else if (BrugerSvar != SvarMuligheder[i] && BrugerSvarTal >= 1 && BrugerSvarTal <= 4)
-                    {
-                        Console.WriteLine("Det er forkert. Dum. Du mister 10 liv");
-                        Players.Health -= 10;
-                        Console.WriteLine($"Du har i alt {Players.Health} liv");
-                        if (Id <= -1)
-                        {
-                            Id += 1;
-                        }
-                        Thread.Sleep(6000);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Der er sket en fejl. Tryk enter og prøv venligst igen");
-                        Console.ReadKey();
-                    }
-                    
-                }
-                while (QuizLoop);
-            }
-            if (Id >= 0)
-            {
-                new Navigation(Id, "").Execute();
-            }
-            else if (Id == -3)
-            {
-                new Item("Hints", 1, -1, "Da du klarede quizen med ingen forkerte for du et hint").Execute();
-                
-            }
-            
+            ItemService.Hints.UsesLeft += UsesLeft;
+            Console.WriteLine("Du har i alt: " + ItemService.Hints.UsesLeft + " Hints");
         }
     }
 }
+
+
+    
+
