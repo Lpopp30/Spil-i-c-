@@ -28,7 +28,7 @@ namespace Spillet
                 do
                 {
                     Console.Clear();
-                    Console.WriteLine("Her er dine spørgsmål for at komme ud af rummet. For at bruge et hint. skriv \"hint\"");
+                    Console.WriteLine("Her er dine spørgsmål for at komme ud af rummet. For at bruge et object. skriv \"Ob\"");
                     Console.WriteLine(SvarMuligheder[i + 2] + SvarMuligheder[i + 3]);
                     string BrugerSvar = Console.ReadLine().ToLower();
                     int.TryParse(BrugerSvar, out int BrugerSvarTal);
@@ -42,8 +42,9 @@ namespace Spillet
                             Id -= 1;
                         }
                     }
-                    else if (BrugerSvar == "hint")
+                    else if (BrugerSvar == "ob")
                     {
+                        Console.WriteLine("Hvilket object ville du bruge ");
                         if (ItemService.Hints.UsesLeft > 0)
                         {
                             Console.Clear();
@@ -66,12 +67,14 @@ namespace Spillet
                         {
                             Id += 1;
                         }
+                        Thread.Sleep(6000);
                     }
                     else
                     {
                         Console.WriteLine("Der er sket en fejl. Tryk enter og prøv venligst igen");
+                        Console.ReadKey();
                     }
-                    Thread.Sleep(6000);
+                    
                 }
                 while (QuizLoop);
             }
