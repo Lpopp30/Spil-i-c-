@@ -1,0 +1,66 @@
+namespace Spillet
+{
+    public class Inventory : Action
+    {
+        public static List<Item> Haves {get; set; }
+
+        public Item NewItem {get; set; }
+
+        public Inventory(List<Item> haves,Item newItem, int id, string description) : base(id, description)
+        {
+            {
+                Haves = haves;
+                NewItem = newItem;
+            }
+
+        }
+
+        public override void Execute()
+        {
+            if (Id >= 0)
+            {
+                foreach (Item Item in Haves)
+                {
+                    Console.WriteLine(Item.ItemName);
+                }
+                Console.WriteLine("Hvilken object ville du bruge. For at komme ud igen tryk enter 2 gange ");
+                string Læs = Console.ReadLine();
+                int input;
+                bool canIt = int.TryParse(Læs, out input);
+                input--;
+
+                if (canIt && 1 <= input && input <= Haves.Count)
+                {
+                    if (Haves[input].UsesLeft > 0)
+                    {
+                        Console.WriteLine($"Du har valgt at bruge {Haves[input].ItemName}. Dette betyder at du nu kan {Haves[input].Description}");
+                    }
+                    else if(canIt)
+                    {
+                        Console.WriteLine("Du har desværre brugt dette object op. Der er ikke flere uses left");
+                    }
+                }
+            }
+            else if (Id == -1) 
+            {
+                if (!Haves.Contains(NewItem)) Haves.Add(NewItem);
+
+                Console.WriteLine($"Her er hvad du har i dit inventory: \n");
+                foreach (Item Item in Haves)
+                {
+                    Console.WriteLine(Item.ItemName);
+                }
+                
+            }
+            else
+            {
+                Console.WriteLine($"Her er hvad du har i dit inventory: \n");
+                foreach (Item Item in Haves)
+                {
+                    Console.WriteLine(Item.ItemName);
+                }
+            }
+
+        }
+    }
+}
